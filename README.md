@@ -1,3 +1,5 @@
+# Kpathsea Releases
+
 [Kpathsea] is a library to do path searching. It is part of the TeXLive
 distribution.
 
@@ -11,6 +13,8 @@ to collect Kpathsea releases to simplify installation of newer versions of
 dvisvgm.
 
 [dvisvgm]: https://github.com/mgieseki/dvisvgm
+
+## Creating a release archive
 
 To create a new release archive, follow these steps:
 
@@ -41,14 +45,28 @@ To create a new release archive, follow these steps:
 [changes to `c-auto.in`]: https://www.tug.org/svn/texlive/trunk/Build/source/texk/kpathsea/c-auto.in?sortby=date&view=log
 [this diff]: https://www.tug.org/svn/texlive/trunk/Build/source/texk/kpathsea/c-auto.in?r1=46545&r2=46759
 
+## Testing a release archive
+
+After creating a release archive, test it for building using the `test` script
+in this repository.
+
+For example, assuming you created the release archive `kpathsea-6.3.0.tar.gz`,
+test it with:
+
+```
+$ ./test kpathsea-6.3.0.tar.gz
+```
+
+## Building a release archive
+
 To build a release archive, follow these steps:
 
-1. Unpack the archive.
+1. Extract the archive.
 
    For example:
 
    ```
-   $ tar zxf kpathsea-6.3.0.tar.gz
+   $ tar xzf kpathsea-6.3.0.tar.gz
    ```
 
 2. Navigate to the `kpathsea` directory.

@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [ $# -ne 1 ]; then
+  echo "Test a kpathsea release archive"
+  echo
+  echo "Usage: $0 <kpathsea-...tar.gz>"
+  exit 1
+fi
+
+# Released version of kpathsea
+FILE="$1"
+echo "\$FILE='$FILE'"
+
+if [[ "$FILE" =~ ^(.*)\.tar\.gz$ ]]; then
+
+  # Extract the archive
+  tar xzf $FILE
+
+  NAME="${BASH_REMATCH[1]}"
+
+  # Navigate, configure, build
+  pushd $NAME/texk/kpathsea
+  ./configure
+  make
+  popd
+
+  rm -rf $NAME
+
+else
+
+  echo "Unexpected file format (missing .tar.gz): $FILE"
+  exit 1
+
+fi
