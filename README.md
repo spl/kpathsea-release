@@ -17,7 +17,7 @@ To create a new release archive, follow these steps:
 1. Find the revision of the release by looking through the [changes to
    `c-auto.in`] in the TeXLive svn repository.
 
-   For example, [this revision] shows that version 6.3.0 (see `KPSEVERSION`)
+   For example, [this diff] shows that version 6.3.0 (see `KPSEVERSION`)
    was released at revision 46759.
 
 2. Run the script in this repository with the version and revision as
@@ -39,7 +39,7 @@ To create a new release archive, follow these steps:
    ```
 
 [changes to `c-auto.in`]: https://www.tug.org/svn/texlive/trunk/Build/source/texk/kpathsea/c-auto.in?sortby=date&view=log
-[this revision]: https://www.tug.org/svn/texlive/trunk/Build/source/texk/kpathsea/c-auto.in?annotate=46759
+[this diff]: https://www.tug.org/svn/texlive/trunk/Build/source/texk/kpathsea/c-auto.in?r1=46545&r2=46759
 
 To build a release archive, follow these steps:
 
