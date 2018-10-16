@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [ $# -ne 2 ]; then
+  echo "Create a tar.gz archive of a kpathsea release"
+  echo
+  echo "Usage: $0 <release-version> <svn-revision>"
+  exit 1
+fi
+
+# Released version of kpathsea
+VER="$1"
+
+# Directory name
+DIR="kpathsea-$VER"
+
+# Subversion revision when version was changed
+REV="$2"
+
+mkdir $DIR
+
+# Check out only the common build files and the kpathsea directory
+pushd $DIR
+svn co -r $REV svn://tug.org/texlive/trunk/Build/source/build-aux
+svn co -r $REV svn://tug.org/texlive/trunk/Build/source/texk/kpathsea texk/kpathsea
+popd
+
+# Create the archive
+tar cz $DIR > $DIR.tar.gz
+
+rm -rf $DIR
