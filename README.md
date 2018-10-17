@@ -1,6 +1,6 @@
 # Kpathsea Releases
 
-[Kpathsea] is a library to do path searching. It is part of the TeXLive
+[Kpathsea] is a library for path searching. It is part of the TeXLive
 distribution.
 
 [Kpathsea]: https://tug.org/kpathsea/
