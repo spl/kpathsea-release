@@ -6,15 +6,17 @@ distribution.
 [Kpathsea]: https://tug.org/kpathsea/
 
 This repository is a collection of standalone Kpathsea release archives.
-Installing it without the rest of the TeXLive distribution is not
+Installing Kpathsea without the rest of the TeXLive distribution is not
 straightforward, and it is needed for [dvisvgm]. While dvisvgm is also included
-with TeXLive, the version is generally very old. So, I started this repository
-to collect Kpathsea releases to simplify installation of newer versions of
-dvisvgm.
+with TeXLive, that version is generally very old. So, I started this repository
+to collect Kpathsea releases to ease installation of newer versions of dvisvgm,
+especially on macOS where the Kpathsea library is not available.
 
 [dvisvgm]: https://github.com/mgieseki/dvisvgm
 
-## Creating a release archive
+## Working with release archives
+
+### Creating
 
 To create a new release archive, follow these steps:
 
@@ -45,7 +47,7 @@ To create a new release archive, follow these steps:
 [changes to `c-auto.in`]: https://www.tug.org/svn/texlive/trunk/Build/source/texk/kpathsea/c-auto.in?sortby=date&view=log
 [this diff]: https://www.tug.org/svn/texlive/trunk/Build/source/texk/kpathsea/c-auto.in?r1=46545&r2=46759
 
-## Testing a release archive
+### Testing
 
 After creating a release archive, test it for building using the `test` script
 in this repository.
@@ -57,7 +59,7 @@ test it with:
 $ ./test kpathsea-6.3.0.tar.gz
 ```
 
-## Building a release archive
+### Building
 
 To build a release archive, follow these steps:
 
@@ -88,3 +90,13 @@ To build a release archive, follow these steps:
 For `./configure` options, run `./configure --help`. In particular, you probably
 want to use `--prefix=<path>` to configure the installation directory to
 something other than the default `/usr/local`.
+
+## Background
+
+The process for extracting Kpathsea from the TexLive distribution and building
+it was initially informed by [this Gist] and [this blog entry] by [Toby
+Fleming]. I use `svn` instead of `rsync` to check out specific revisions.
+
+[this Gist]: https://gist.github.com/tobywf/aeeeee63053aaaa841b4032963406684
+[this blog entry]: https://tobywf.com/2017/04/build-dvisvgm-kpathsea-on-macos/
+[Toby Fleming]: https://tobywf.com/
